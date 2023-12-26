@@ -2,6 +2,7 @@ package chris.han.firstspringboot.service
 
 import chris.han.firstspringboot.`interface`.CustomerService
 import chris.han.firstspringboot.model.Customer
+import chris.han.firstspringboot.model.Telephone
 import org.springframework.stereotype.Component
 import java.util.concurrent.ConcurrentHashMap
 
@@ -10,8 +11,8 @@ class CustomerServiceImpl: CustomerService {
   companion object {
     val initialCustomers = arrayOf(
       Customer(1, "Kotlin"),
-      Customer(2, "Spring"),
-      Customer(3, "Microservice"),
+      Customer(2, "Spring", Telephone("+86", "7123456789")),
+      Customer(3, "Microservice", Telephone("+83", "7123456789")),
     )
   }
   

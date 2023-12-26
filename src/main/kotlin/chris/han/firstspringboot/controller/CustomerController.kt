@@ -2,9 +2,11 @@ package chris.han.firstspringboot.controller
 
 import chris.han.firstspringboot.`interface`.CustomerService
 import chris.han.firstspringboot.model.Customer
+import chris.han.firstspringboot.model.CustomerNotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.ErrorResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -22,8 +24,11 @@ class CustomerController {
     @PathVariable id: Int
   ): ResponseEntity<Customer?> {
     val customer = customerService.getCustomer(id)
-    val status = if (customer == null) HttpStatus.NOT_FOUND else HttpStatus.OK
-    return ResponseEntity(customer, status)
+    
+    return if (customer != null)
+      ResponseEntity(customer, HttpStatus.OK)
+    else
+      ResponseEntity(null, HttpStatus.NOT_FOUND)
   }
   
   @PostMapping("/customers")
