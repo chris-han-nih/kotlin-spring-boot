@@ -2,11 +2,9 @@ package chris.han.firstspringboot.controller
 
 import chris.han.firstspringboot.`interface`.CustomerService
 import chris.han.firstspringboot.model.Customer
-import chris.han.firstspringboot.model.CustomerNotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.ErrorResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
